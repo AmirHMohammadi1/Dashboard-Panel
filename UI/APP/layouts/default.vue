@@ -8,8 +8,8 @@
       <!-- Sidebar -->
        <div
             :class="[
-            menuStatus ? 'block' : 'hidden',
-            'lg:block']">
+            menuStatus ? 'left-0' : '-left-[500px]',
+            'lg:left-0 relative duration-700']">
            <aside class="w-64 z-50 bg-[#1F283E] fixed h-fit lg:h-[94vh] m-3 lg:m-5 rounded-2xl p-4 border border-[#2b324b]">
              <img src="../assets/Logo.png" alt="">
              
@@ -17,7 +17,7 @@
      
              </div>
      
-             <ul class="font-semibold space-y-2">
+             <ul class="space-y-2">
                  <nuxtLink to="/" 
                  :class="{ 'bg-linear-to-r from-blue-400 to-blue-500': route.path === '/' }"
                  class="text-white py-3 px-5 duration-300 hover:bg-white/30 cursor-pointer rounded-xl flex gap-3">
@@ -72,7 +72,7 @@
 
       <!-- Page Content -->
       <main class="flex-1 p-6">
-        <div class="fixed z-40 flex sm:flex-row flex-col justify-between bg-[#192039] rounded-bl-2xl rounded-br-2xl  lg:rounded-2xl px-5 py-3 border border-white/30
+        <div class="fixed z-40 flex sm:flex-row flex-col justify-between backdrop-blur-md bg-[#192039]/80  rounded-bl-2xl rounded-br-2xl  lg:rounded-2xl px-5 py-3 border border-white/10
             w-full lg:w-[calc(100%-20.5rem)] top-0 lg:top-auto left-0 lg:left-[305px]">
             <div class="flex flex-col justify-center">
                 <div class="flex">
@@ -83,7 +83,7 @@
                     <span class="text-white">{{ pageName  }}</span>
                 </div>
                 <div>
-                    <span class="text-white font-semibold">{{ pageName }}</span>
+                    <span class="text-white">{{ pageName }}</span>
                 </div>
             </div>
             <div class="mt-3 flex gap-5 items-center justify-between">
@@ -99,7 +99,7 @@
                     <nuxt-link to="/notification">
                         <IconsNotifIcon/>
                     </nuxt-link>
-                    <button class="lg:hidden block" @click="changeMenuStatus">
+                    <button class="lg:hidden block text-white" @click="changeMenuStatus">
                         <IconsHamburgerMenuIcon class="size-10" />
                     </button>
                 </div>

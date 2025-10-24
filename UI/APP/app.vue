@@ -7,7 +7,12 @@
 </template>
 
 <style>
+    @font-face {
+        font-family: poppins;
+        src: url(./assets/fonts/Poppins-Regular.ttf);
+    }
     body{
         background-color: #1A2035;
+        font-family: poppins;
     }
 </style>

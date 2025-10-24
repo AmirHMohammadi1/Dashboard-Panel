@@ -1,6 +1,6 @@
 <template>
   <div class="lg:pl-70 pt-10 text-white">
-        <div class="w-full justify-between gap-10 lg:gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div class="w-full justify-between gap-10 lg:gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-7">
             <div class="bg-[#202a44] w-full p-4 relative rounded-2xl shadow-lg flex flex-col justify-between">
                 <div class="w-16 h-16 absolute flex justify-center items-center -top-5 rounded-2xl bg-linear-to-bl from-[#2E364F] shadow-xl to-[#181e30]">
                     <icons-book-icon/>
@@ -58,6 +58,61 @@
                     </span>
                 </div>
             </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-y-16 lg:grid-cols-3 gap-5 mt-16">
+
+            <div class="bg-[#202a44] p-4 rounded-2xl">
+                <div class="p-4 bg-linear-to-b relative -top-10 from-[#3289db] to-[#1956a1] rounded-xl">
+                    <bar-chart/>
+                </div>
+                <div class="relative -top-5">
+                    <p class="text-lg">website views</p>
+                    <p class="text-gray-400 text-sm">Last Campaign Performance</p>
+                    <div class="w-full h-px bg-linear-to-r from-white/5 via-white to-white/5 my-4"></div>
+                    <div class="flex items-center gap-2">
+                        <span>
+                            <icons-time-icon class="w-4"/>
+                        </span>
+                        <span class="text-gray-400 text-sm">campaign sent 2 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#202a44] p-4 rounded-2xl">
+                <div class="p-4 bg-linear-to-b relative -top-10 from-[#5EB562] to-[#347937] rounded-xl">
+                    <green-line-chart/>
+                </div>
+                <div class="relative -top-5">
+                    <p class="text-lg">daily sales</p>
+                    <p class="text-gray-400 text-sm">(+15%) increase in today sales.</p>
+                    <div class="w-full h-px bg-linear-to-r from-white/5 via-white to-white/5 my-4"></div>
+                    <div class="flex items-center gap-2">
+                        <span>
+                            <icons-time-icon class="w-4"/>
+                        </span>
+                        <span class="text-gray-400 text-sm">updated 4 min ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#202a44] p-4 rounded-2xl">
+                <div class="p-4 bg-linear-to-b relative -top-10 from-[#2F3650] to-[#22273a] rounded-xl">
+                    <black-line-chart/>
+                </div>
+                <div class="relative -top-5">
+                    <p class="text-lg">completed tasks</p>
+                    <p class="text-gray-400 text-sm">Last Campaign Performance</p>
+                    <div class="w-full h-px bg-linear-to-r from-white/5 via-white to-white/5 my-4"></div>
+                    <div class="flex items-center gap-2">
+                        <span>
+                            <icons-time-icon class="w-4"/>
+                        </span>
+                        <span class="text-gray-400 text-sm">just updated</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
   </div>
 </template>
