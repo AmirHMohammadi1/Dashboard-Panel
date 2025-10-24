@@ -5,3 +5,9 @@
     </NuxtLayout>
   </div>
 </template>
+
+<style>
+    body{
+        background-color: #1A2035;
+    }
+</style>
