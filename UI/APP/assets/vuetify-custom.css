@@ -1,0 +1,25 @@
+/* assets/vuetify-custom.css */
+
+/* متغیرهای پایه (رنگ‌ها، سایه‌ها و...) */
+@import "vuetify/lib/styles/settings/_variables.scss";
+
+/* reset های پایه برای رنگ و فونت */
+.v-application {
+  background-color: transparent !important;
+  color: inherit;
+}
+
+/* برای دیتا تیبل */
+.v-data-table {
+  background-color: transparent !important;
+  color: inherit;
+  border-radius: 0.75rem; /* برای زیبایی */
+}
+
+/* برای ردیف‌ها */
+.v-data-table__tr {
+  background-color: rgba(255, 255, 255, 0);
+}
+.v-data-table__tr:hover {
+  background-color: rgba(255, 255, 255, 0);
+}

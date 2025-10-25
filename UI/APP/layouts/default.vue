@@ -1,4 +1,3 @@
-<!-- layouts/default.vue -->
 <template>
   <div class="min-h-screen flex flex-col">
 
