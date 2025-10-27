@@ -150,9 +150,9 @@
                     <div class="text-sm mt-5 flex justify-center">
                         <p class="text-gray-400 text-sm">
                             Don't have an account?
-                            <a href="#" class="text-blue-500 hover:text-blue-400 font-medium transition-colors duration-200 text-sm">
+                            <nuxt-link to="/signUp" class="text-blue-500 hover:text-blue-400 font-medium transition-colors duration-200 text-sm">
                                 Sign up
-                            </a>
+                            </nuxt-link>
                         </p>
                     </div>
                     
