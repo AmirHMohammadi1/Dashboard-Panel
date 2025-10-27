@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col overflow-x-hidden"> <!-- جلوگیری از overflow افقی -->
+  <div class="min-h-screen flex flex-col overflow-x-hidden">
     <!-- ===== Main Section ===== -->
     <div class="flex flex-1 relative">
       <!-- Sidebar -->
@@ -12,7 +12,9 @@
         <aside
           class="w-64 sm:w-60 bg-[#1F283E] h-screen lg:h-[94vh] m-0 lg:m-5 rounded-none lg:rounded-2xl p-4 border border-[#2b324b] fixed overflow-y-auto"
         >
-          <img src="../assets/Logo.png" alt="Logo" class="mx-auto" />
+        <nuxt-link to="/">
+            <img draggable="false" src="../assets/Logo.png" alt="Logo" class="mx-auto" />
+        </nuxt-link>
 
           <div class="w-full h-px bg-linear-to-r from-white/5 via-white to-white/5 my-5"></div>
 
@@ -83,24 +85,24 @@
               <span>Setting</span>
             </nuxt-link>
             <nuxt-link
-              to="/setting"
+              to="/signIn"
               :class="[
                 'text-white py-3 px-5 duration-300 hover:bg-white/30 cursor-pointer rounded-xl flex gap-3 items-center',
-                route.path === '/setting' ? 'bg-linear-to-r from-blue-400 to-blue-500' : ''
+                route.path === '/signIn' ? 'bg-linear-to-r from-blue-400 to-blue-500' : ''
               ]"
             >
-              <IconsSettingIcon />
-              <span>Setting</span>
+              <IconsSignInIcon />
+              <span>Sign In</span>
             </nuxt-link>
             <nuxt-link
-              to="/setting"
+              to="/signUp"
               :class="[
                 'text-white py-3 px-5 duration-300 hover:bg-white/30 cursor-pointer rounded-xl flex gap-3 items-center',
-                route.path === '/setting' ? 'bg-linear-to-r from-blue-400 to-blue-500' : ''
+                route.path === '/signUp' ? 'bg-linear-to-r from-blue-400 to-blue-500' : ''
               ]"
             >
-              <IconsSettingIcon />
-              <span>Setting</span>
+              <IconsSignOutIcon />
+              <span>Sign Up</span>
             </nuxt-link>
           </ul>
         </aside>
@@ -108,7 +110,7 @@
 
       <!-- Page Content -->
       <main class="flex-1 p-4 sm:p-6 overflow-x-hidden">
-        <div class="fixed z-40 flex sm:flex-row flex-col justify-between backdrop-blur-md bg-[#192039]/80  rounded-bl-2xl rounded-br-2xl  lg:rounded-2xl px-5 py-3 border border-white/10
+        <div class="fixed z-40 flex sm:flex-row flex-col justify-between backdrop-blur-md bg-[#1920393f] rounded-bl-2xl rounded-br-2xl  lg:rounded-2xl px-5 py-3 border border-white/10
             w-full lg:w-[calc(100%-20.5rem)] top-0 lg:top-auto left-0 lg:left-[305px]">
             <div class="flex flex-col justify-center">
                 <div class="flex">
@@ -175,6 +177,10 @@ const pageName = computed(() => {
       return 'Notification'
     case '/setting':
       return 'Setting'
+    case '/signIn':
+      return 'sign In'
+    case '/signUp':
+      return 'sign Up'
     default:
       return ''
   }
