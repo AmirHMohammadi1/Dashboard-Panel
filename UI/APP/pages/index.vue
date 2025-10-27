@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:pl-70 pt-10 text-white">
+  <div class="lg:pl-70 pt-20 text-white">
         <!-- Dashboard Metrics -->
         <div class="w-full justify-between gap-10 lg:gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-7">
             <div class="bg-[#202a44] w-full p-4 relative rounded-2xl shadow-lg flex flex-col justify-between">
