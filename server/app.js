@@ -16,12 +16,32 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nuxio-das
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+// const uri = "mongodb+srv://ahmohammadi5_db_user:HAXdEoJsbDtXsEtW@nuxio-dashboard.xgcbego.mongodb.net/nuxio?appName=nuxio-dashboard";
+
+// const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
+
+// async function run() {
+//   try {
+//     // Create a Mongoose client with a MongoClientOptions object to set the Stable API version
+//     await mongoose.connect(uri, clientOptions);
+//     await mongoose.connection.db.admin().command({ ping: 1 });
+//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     await mongoose.disconnect();
+//   }
+// }
+// run().catch(console.dir);
+
+
+
 // میدلورهای امنیتی
 app.use(helmet());
-app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS || 'http://localhost:3000',
-  credentials: true
-}));
+// app.use(cors({
+//   origin: process.env.ALLOWED_ORIGINS || 'http://localhost:3000',
+//   credentials: true
+// }));
+app.use(cors());
 app.use(rateLimit);
 app.use(express.json({ limit: '10kb' }));
 
