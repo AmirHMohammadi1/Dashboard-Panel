@@ -284,7 +284,7 @@
                                     <input
                                     @keyup.enter="pushToLabelsArray"
                                     v-model="labelText"
-                                    type="tel" 
+                                    type="text" 
                                     id="phone-number" 
                                     name="phone-number" 
                                     placeholder="Add Some Skills"
