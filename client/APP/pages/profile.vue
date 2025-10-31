@@ -253,7 +253,7 @@
                             <div>
                             <label for="phone-number" class="block text-sm font-medium text-gray-300">Phone Number</label>
                             <input 
-                                type="tel" 
+                                type="text" 
                                 id="phone-number" 
                                 name="phone-number" 
                                 placeholder="+40 735 631 620" 
