@@ -118,9 +118,6 @@
                 <input class="py-2 px-5 w-40 lg:w-auto rounded-md focus:outline-blue-500 text-white border border-white/50 placeholder:text-white" placeholder="Search HERE" type="search" name="" id="">
                 
                 <div class="flex gap-3 text-gray-400 items-center">
-                    <nuxt-link to="/setting">
-                        <IconsSettingIcon/>
-                    </nuxt-link>
                     <nuxt-link to="/profile">
                         <IconsCircleProfileIcon/>
                     </nuxt-link>
