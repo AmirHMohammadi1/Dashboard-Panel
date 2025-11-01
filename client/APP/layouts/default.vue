@@ -75,16 +75,6 @@
             </nuxt-link>
 
             <nuxt-link
-              to="/setting"
-              :class="[
-                'text-white py-3 px-5 duration-300 hover:bg-white/30 cursor-pointer rounded-xl flex gap-3 items-center',
-                route.path === '/setting' ? 'bg-linear-to-r from-blue-400 to-blue-500' : ''
-              ]"
-            >
-              <IconsSettingIcon />
-              <span>Setting</span>
-            </nuxt-link>
-            <nuxt-link
               to="/signIn"
               :class="[
                 'text-white py-3 px-5 duration-300 hover:bg-white/30 cursor-pointer rounded-xl flex gap-3 items-center',
@@ -175,8 +165,6 @@ const pageName = computed(() => {
       return 'Services'
     case '/notification':
       return 'Notification'
-    case '/setting':
-      return 'Setting'
     case '/signIn':
       return 'sign In'
     case '/signUp':
