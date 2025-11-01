@@ -225,6 +225,8 @@ definePageMeta({
 const email = ref("");
 const password = ref("");
 const hintStatus = ref(false);
+const isMenuOpen = ref(false);
+
 
 const hintStatusChangeToTrue = () => (hintStatus.value = true);
 const hintStatusChangeToFalse = () => (hintStatus.value = false);
