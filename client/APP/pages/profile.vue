@@ -2,8 +2,8 @@
     <div class="lg:pl-70 pt-10">
         <div class="flex md:flex-row flex-col justify-between gap-5">
 
-            <div class="md:w-[30%]">
-                <div class="w-full bg-[#1c2741] border border-[#2b324b] text-gray-300 rounded-lg p-4">
+            <div class="md:w-[30%] flex flex-col gap-5">
+                <div class="w-full bg-[#1c2741] h-1/2 border border-[#2b324b] text-gray-300 rounded-lg p-4">
                     <nav class="text-sm">
                         <ul class="space-y-1">
                         <li>
@@ -52,10 +52,12 @@
                             </button>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center p-2 rounded-md hover:bg-gray-700 hover:text-white">
+                            <button
+                            @click="scrollToSection('devices')"
+                            class="flex items-center p-2 rounded-md w-full cursor-pointer hover:bg-gray-700 hover:text-white">
                             <icons-computer-icon class="w-5 h-5 mr-3 text-gray-400"/>
                             <span>Devices</span>
-                            </a>
+                            </button>
                         </li>
                         </ul>
         
@@ -63,14 +65,33 @@
         
                         <ul class="space-y-1">
                         <li>
-                            <a href="#" class="flex items-center bg-red-500 p-2 rounded-md hover:bg-gray-700 hover:text-white">
+                            <button 
+                            @click="scrollToSection('delete-account')"
+                            class="flex items-center p-2 rounded-md w-full cursor-pointer hover:bg-gray-700 hover:text-white">
                             <icons-delete-icon class="w-5 h-5 mr-3 text-gray-400"/>
                             <span>Delete Account</span>
-                            </a>
+                            </button>
                         </li>
                         </ul>
                     </nav>
                 </div>
+
+                    <!-- delete account -->
+                    <div id="delete-account" class="bg-[#1c2741] gap-y-10 flex flex-col justify-between w-full h-1/2 border border-[#2b324b] text-gray-300 rounded-lg p-4">
+                        <div>
+                            <h2 class="text-xl text-white">Delete Account</h2>
+                            <span class="text-xs text-gray-400">Once you delete your account, there is no going back. Please be certain.</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <button class="py-1 hover:opacity-50 hover:text-gray-500 duration-300 px-3 w-full text-center cursor-pointer rounded-lg border-2 border-gray-700 text-gray-700">Deactivate</button>
+
+                            <button class="bg-red-600 w-full text-center cursor-pointer text-white py-2 px-4 rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:bg-red-700 hover:shadow-red-500/50 hover:shadow-[0_0_20px_0_rgba(239,68,68,0.7)]">
+                                Delete Account
+                            </button>
+                        </div>
+                    </div>
+                
             </div>
 
             <div class="md:w-[70%]">
@@ -385,6 +406,7 @@
             </div>
         </section>
 
+        <!-- notification -->
         <section id="notification">
             <div class="w-full relative bg-[#1c2741] border border-[#2b324b] p-6 rounded-lg shadow-lg mt-5">
                     <!-- title -->
@@ -521,7 +543,88 @@
                     </div>
             </div>
         </section>
+
+        <!-- devices -->
+        <section id="devices">
+            <div class="w-full relative bg-[#1c2741] border border-[#2b324b] p-6 rounded-lg shadow-lg mt-5">
+                <div class="flex flex-col gap-y-2">
+                    <h2 class="text-xl text-white">Devices</h2>
+                    <span class="text-sm text-gray-400">This is a list of devices that have logged into your account. Remove those that you do not recognize.
+                    </span>
+                </div>
+    
+                <div class="mt-7">
+                    <div class="flex justify-between items-center gap-2">
+                        <div class="flex items-center gap-4 text-[#858484]">
+                            <div>
+                                <icons-computer-icon />
+                            </div>
+                            <div>
+                                <p class="text-sm">Bucharest 68.133.163.201</p>
+                                <p class="text-xs">Your current session</p>
+                            </div>
+                        </div>
+                        <div class="flex sm:flex-row flex-col gap-3 items-center">
+                            <span class="px-2 py-1 bg-[#BCE2BE] text-[#419D45] text-xs font-semibold rounded-md">
+                                Active
+                            </span>
+                            <div class="text-[#b3b3b3] sm:text-[16px] text-sm text-right">EU</div>
+                            <div class="flex gap-2 items-center text-white">
+                                <a class="text-sm peer text-right" href="#">
+                                    See more
+                                </a>
+                                <icons-right-icon class="w-4 peer-hover:translate-x-2 cursor-pointer hover:translate-x-2 duration-300" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full h-px bg-linear-to-r from-white/5 via-white to-white/5 my-4"></div>
+                    
+                    <div class="flex justify-between items-center gap-2">
+                        <div class="flex items-center gap-4 text-[#858484]">
+                            <div>
+                                <icons-computer-icon />
+                            </div>
+                            <div>
+                                <p class="text-sm">Chrome on macOS</p>
+                            </div>
+                        </div>
+                        <div class="flex sm:flex-row flex-col gap-3 items-center">
+                            <div class="text-[#b3b3b3] sm:text-[16px] text-sm text-right">US</div>
+                            <div class="flex gap-2 items-center text-white">
+                                <a class="text-sm peer text-right" href="#">
+                                    See more
+                                </a>
+                                <icons-right-icon class="w-4 peer-hover:translate-x-2 cursor-pointer hover:translate-x-2 duration-300" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full h-px bg-linear-to-r from-white/5 via-white to-white/5 my-4"></div>
+
+                    <div class="flex justify-between items-center gap-2">
+                        <div class="flex items-center gap-4 text-[#858484]">
+                            <div>
+                                <icons-mobile-icon />
+                            </div>
+                            <div>
+                                <p class="text-sm">Safari on iPhone</p>
+                            </div>
+                        </div>
+                        <div class="flex sm:flex-row flex-col gap-3 items-center">
+                            <div class="text-[#b3b3b3] sm:text-[16px] text-sm text-right">US</div>
+                            <div class="flex gap-2 items-center text-white">
+                                <a class="text-sm peer text-right" href="#">
+                                    See more
+                                </a>
+                                <icons-right-icon class="w-4 peer-hover:translate-x-2 cursor-pointer hover:translate-x-2 duration-300" />
+                            </div>
+                        </div>
+                    </div>
         
+                 
+                </div>
+            </div>
+        </section>
+
     </div>
 </template>
 <script setup>

@@ -14,6 +14,5 @@
     body{
         background-color: #1A2035;
         font-family: poppins;
-        padding-bottom: 500px;
     }
 </style>
