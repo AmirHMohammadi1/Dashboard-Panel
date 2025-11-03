@@ -39,6 +39,26 @@ router.post('/register', validateRegister, checkValidationResult, async (req, re
     // تولید توکن
     const token = generateToken(user._id);
 
+    // برای وب اپلیکیشن - HttpOnly cookie
+    res.cookie('Authorization', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 7 * 24 * 60 * 60 * 1000
+    });
+    
+    // برای موبایل اپ - در body
+    if (req.headers['client-type'] === 'mobile') {
+      return res.json({
+        token,
+        user: {
+          id: user._id,
+          name: user.name,
+          email: user.email
+        }
+      });
+    }
+
     res.status(201).json({
       success: true,
       message: 'ثبت‌نام با موفقیت انجام شد',
@@ -48,7 +68,7 @@ router.post('/register', validateRegister, checkValidationResult, async (req, re
           email: user.email,
           name: user.name
         },
-        token
+        // token
       }
     });
 
@@ -79,6 +99,26 @@ router.post('/login', validateLogin, checkValidationResult, async (req, res) => 
     // تولید توکن
     const token = generateToken(user._id);
 
+    // برای وب اپلیکیشن - HttpOnly cookie
+    res.cookie('Authorization', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 7 * 24 * 60 * 60 * 1000
+    });
+    
+    // برای موبایل اپ - در body
+    if (req.headers['client-type'] === 'mobile') {
+      return res.json({
+        token,
+        user: {
+          id: user._id,
+          name: user.name,
+          email: user.email
+        }
+      });
+    }
+
     res.json({
       success: true,
       message: 'ورود موفقیت‌آمیز بود',
@@ -88,7 +128,7 @@ router.post('/login', validateLogin, checkValidationResult, async (req, res) => 
           email: user.email,
           name: user.name
         },
-        token
+        // token
       }
     });
 

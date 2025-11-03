@@ -1,8 +1,9 @@
 /api/auth/register
+post
 input: email, password, name
 output (if success): 
         success: true,
-        message: 'ثبت‌نام با موفقیت انجام شد',
+        message: ثبت‌نام با موفقیت انجام شد,
         data: {
         user: {
             id: user._id,
@@ -15,10 +16,11 @@ output (if success):
 ===============================
 
 /api/auth/login
+post
 input: email, password
 output (if success): 
         success: true,
-        message: 'ورود موفقیت‌آمیز بود',
+        message: ورود موفقیت‌آمیز بود,
         data: {
         user: {
             id: user._id,
@@ -31,9 +33,47 @@ output (if success):
 ================================
 
 /api/auth/user
+get
 input: (jwttoken)
 output (if success):
         success: true,
         data: {
-        user: req.user
+        user
         }
+
+================================
+
+/api/users
+get
+input: (jwttoken)
+output (if success):
+        success: true,
+        data: {
+        users
+        }
+
+================================
+
+/api/users/id
+get
+input: id (jwttoken in headers)
+output (if success):
+        success: true,
+        data: {
+        user
+        }
+
+================================
+
+/api/users/edit-profile
+put
+input: id, name?, email?, gender?, birthday?, location?, phone?, skills? (jwttoken in headers)
+output (if success):
+        {
+    success: true,
+    message: پروفایل با موفقیت بروزرسانی شد,
+    data: {
+        user
+    }
+}
+

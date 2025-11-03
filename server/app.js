@@ -5,7 +5,8 @@ const cors = require('cors');
 const rateLimit = require('./middleware/rateLimit');
 const path = require('path');
 const logger = require('morgan');
-
+const dotenv = require('dotenv')
+dotenv.config()
 // const indexRouter = require('./routes/index');
 const Router = require('./routes/index');
 
@@ -16,7 +17,7 @@ const app = express();
 //   .then(() => console.log('Connected to MongoDB'))
 //   .catch(err => console.error('MongoDB connection error:', err));
 
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/nuxio-dashboard';
+const uri = process.env.MONGODB_URI;
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
@@ -26,9 +27,11 @@ async function run() {
     await mongoose.connect(uri, clientOptions);
     await mongoose.connection.db.admin().command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
+  } catch {
     // Ensures that the client will close when you finish/error
     await mongoose.disconnect();
+  } finally {
+    
   }
 }
 run().catch(console.dir);
@@ -44,7 +47,6 @@ app.use(helmet());
 app.use(cors());
 app.use(rateLimit);
 app.use(express.json({ limit: '10kb' }));
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
