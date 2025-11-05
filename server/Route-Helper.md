@@ -77,3 +77,14 @@ output (if success):
     }
 }
 
+================================
+
+/api/users/change-password
+put
+input: id, currentPassword, newPassword (jwttoken in headers)
+output (if success):
+        {
+    success: true,
+    message: رمز عبور با موفقیت تغییر کرد
+}
+

@@ -169,5 +169,73 @@ router.put('/edit-profile',
     }
 );
 
+// 4. POST /user/change-password - تغییر رمز عبور
+router.post('/change-password',
+    auth,
+    [
+        body('currentPassword')
+            .notEmpty()
+            .withMessage('رمز عبور فعلی الزامی است'),
+        body('newPassword')
+            .isLength({ min: 8 })
+            .withMessage('رمز عبور جدید باید حداقل 8 کاراکتر باشد')
+            .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
+            .withMessage('رمز عبور باید شامل حروف بزرگ، کوچک و اعداد باشد')
+    ],
+    checkValidationResult,
+    async (req, res) => {
+        try {
+            // بررسی دسترسی
+            if (req.user.id !== req.body.id && !req.user.isAdmin) {
+                return res.status(403).json({
+                    success: false,
+                    message: 'شما فقط می‌توانید رمز عبور خود را تغییر دهید'
+                });
+            }
+
+            const user = await User.findById(req.body.id).select('+password');
+            if (!user) {
+                return res.status(404).json({
+                    success: false,
+                    message: 'کاربر یافت نشد'
+                });
+            }
+
+            // بررسی رمز عبور فعلی
+            const isCurrentPasswordValid = await user.comparePassword(req.body.currentPassword);
+            if (!isCurrentPasswordValid) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'رمز عبور فعلی نادرست است'
+                });
+            }
+
+            // بررسی عدم تکرار رمز عبور قبلی
+            const isSameAsOld = await user.comparePassword(req.body.newPassword);
+            if (isSameAsOld) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'رمز عبور جدید نباید با رمز عبور فعلی یکسان باشد'
+                });
+            }
+
+            // بروزرسانی رمز عبور
+            user.password = req.body.newPassword;
+            await user.save();
+
+            res.json({
+                success: true,
+                message: 'رمز عبور با موفقیت تغییر کرد'
+            });
+        } catch (error) {
+            console.error('Change password error:', error);
+            res.status(500).json({
+                success: false,
+                message: 'خطا در تغییر رمز عبور'
+            });
+        }
+    }
+);
+
 
 module.exports = router;
